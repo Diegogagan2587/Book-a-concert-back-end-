@@ -4,13 +4,15 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  def respond_with(current_user, _opts = {})
+  def respond_with(user, _opts = {})
     render json: {
       status: {
         code: 200, message: 'Logged in successfully.',
         data: {
-          user: UserSerializer.new(current_user).serializable_hash[:data][:attributes]
-        }
+          user: UserSerializer.new(user).serializable_hash[:data][:attributes]
+        },
+        ## I need to send the token corresponding to logged user back to the client for the client to store it for future requests
+        token: User.find_by(email: user.email).jti
       }
     }, status: :ok
   end
