@@ -2,7 +2,8 @@ class ApplicationController < ActionController::API
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_user
-    @current_user = User.find_by(logged: true)
+    token = request.headers['Authorization'].split(' ').last
+    @current_user = User.find_by(jti: token)
     if @current_user.nil?
       render json: { message: 'No user logged in' }, status: :unauthorized
     else
