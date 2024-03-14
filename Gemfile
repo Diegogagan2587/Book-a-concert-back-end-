@@ -50,3 +50,8 @@ group :development do
 end
 
 gem 'rack-cors'
+
+gem 'devise', '~> 4.9'
+
+gem 'devise-jwt', '~> 0.11.0'
+gem 'jsonapi-serializer', '~> 2.2'
