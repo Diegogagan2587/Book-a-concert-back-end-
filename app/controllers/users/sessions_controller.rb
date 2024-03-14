@@ -24,10 +24,10 @@ class Users::SessionsController < Devise::SessionsController
           request.headers['Authorization'].split.last,
           Rails.application.credentials.devise_jwt_secret_key!
         ).first
-      current_user = User.find(jwt_payload['sub'])
+      user = User.find(jwt_payload['sub'])
     end
 
-    if current_user
+    if user
       render json: {
         status: 200,
         message: 'Logged out successfully.'
