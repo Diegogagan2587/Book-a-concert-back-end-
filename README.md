@@ -35,7 +35,8 @@
 
 # Book a Concert App <a name="--book-a-concert-"></a>
 
-**Book a Concert App** Final Capstone Project, based on an app to book an appointment to a concert. This App will use Rails for the backend API and React for the frontend
+**Book a Concert App** Final Capstone Project, based on an app to book an appointment to a concert. This App make use of Ruby on Rails for the Back-End API and React for the Front-End.
+Take a look to the [Front-End Repository.](https://github.com/Diegogagan2587/Book-a-concert-front-end)
 
 ### Kanban Board <a id="kanban-board">
 - Take a look to the [Project Kanban Board](https://github.com/users/Diegogagan2587/projects/4/views/2)
