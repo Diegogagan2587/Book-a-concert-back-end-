@@ -88,6 +88,4 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
-  # Set the allowed origins for the Cross-Origin Resource Sharing (CORS) middleware.
-  config.allowed_origin = ENV["ALLOWED_ORIGIN"];
 end
