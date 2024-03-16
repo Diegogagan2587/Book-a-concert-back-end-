@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  },
+  controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   get "/users", to: "users#index"
   get "/current_user", to: "application#current_user"
   get "/current_user/concerts", to: "concerts#current_user_concerts"
@@ -8,11 +17,7 @@ Rails.application.routes.draw do
   get "/reservations", to: "reservations#index"
   get "/reservations/:id", to: "reservations#show"
 
-  post "/signup", to: "users#create"
-  post "/login", to: "sessions#create"
   post "/concerts", to: "concerts#create"
   post '/reservations', to: 'reservations#create'
-
-  delete "/logout", to: "sessions#destroy"
   delete "/concerts/:id", to: "concerts#destroy"
 end

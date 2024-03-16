@@ -58,8 +58,8 @@ development:
 test:
   <<: *default
   database: book_a_concert_back_end_test
-  username: book_a_concert_back_end_development
-  password: <%= ENV["BOOK_A_CONCERT_BACK_END_DATABASE_PASSWORD"] %>
+  # username: book_a_concert_back_end_development
+  # password: <%= ENV["BOOK_A_CONCERT_BACK_END_DATABASE_PASSWORD"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
