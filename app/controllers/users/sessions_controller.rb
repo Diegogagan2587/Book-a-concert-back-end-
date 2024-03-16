@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
         data: {
           user: UserSerializer.new(user).serializable_hash[:data][:attributes]
         },
-        ## I need to send the token corresponding to logged user back to the client 
+        ## I need to send the token corresponding to logged user back to the client
         ## for the client to store it for future requests
         token: User.find_by(email: user.email).jti
       }
