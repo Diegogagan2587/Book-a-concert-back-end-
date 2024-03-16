@@ -42,9 +42,17 @@ class ConcertsController < ApplicationController
   end
 
   def destroy
-    @concert = Concert.find(params[:id])
-    @concert.destroy
-    render json: { message: 'Concert deleted successfully and all its reservations' }
+    @concert = Concert.find_by(id: params[:id])
+
+    if @concert
+      if @concert.destroy
+        render json: { message: 'Concert deleted successfully and all its reservations' }
+      else
+        render json: { error: 'Failed to delete the concert' }, status: :unprocessable_entity
+      end
+    else
+      render json: { error: 'Concert not found' }, status: :not_found
+    end
   end
 
   private
