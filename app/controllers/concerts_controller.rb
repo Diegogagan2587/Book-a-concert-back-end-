@@ -27,7 +27,8 @@ class ConcertsController < ApplicationController
   end
 
   def current_user_concerts
-    @current_user = User.find_by(logged: true)
+    token = request.headers['Authorization'].split.last
+    @current_user = User.find_by(jti: token)
     if @current_user
       @concerts = @current_user.concerts
       concerts_hash = @concerts.as_json
