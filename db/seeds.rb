@@ -10,7 +10,7 @@
 
 #Ariaga Creates an account and create an Indepentent Concert
 
-@user_one = User.create(name: "Ariana Grande")
+@user_one = User.find_or_create_by(name: "Ariana Grande", email: "ariana@mail.com", password:'123456');
 
 @ariana_concert = Concert.create(
   title: "Ariana Grande Live Concert",
@@ -24,7 +24,7 @@
 
 # Then anohther user creates an account and buys a ticket or reserve for the concert
 
-@user_two = User.create(name: "Alejandro Magnus")
+@user_two = User.find_or_create_by(name: "Alejandro Magnus", email: "alejandro@mail.com", password:'123456');
 @reservation = Reservation.create(
   user: @user_two,
   concert: @ariana_concert,
